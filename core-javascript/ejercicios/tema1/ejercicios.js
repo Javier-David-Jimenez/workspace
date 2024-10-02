@@ -21,7 +21,7 @@ console.log(sumado);
 let cadena1 = "Estoy en casas. ";
 let cadena2 = "Haciendo ejercicios.";
 let unido = cadena1 + cadena2;
-console.log(unido);
+console.log("frase completa" + unido + "acaba aqui");
 
 // Como declarar una clase
 class Persona {

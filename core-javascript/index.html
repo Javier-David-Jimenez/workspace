@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Título de la Página </title>
+
+    <!-- Meta para accesibilidad -->
+    <meta name="description" content="Descripción accesible de la página.">
+
+    <!-- Vincular archivo CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Encabezado accesible -->
+    <header role="banner">
+        <h1>Título de la Pagina</h1>
+        <nav aria-label="Menú principal">
+            <ul>
+                <li><a href="#seccion1">Sección 1</a></li>
+                <li><a href="#seccion2">Sección 2</a></li>
+                <li><a href="#seccion3">Sección 3</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección principal con accesibilidad -->
+    <main role="main">
+        <section id="seccion1" aria-labelledby="titulo-seccion1">
+            <h2 id="titulo-seccion1">Encabezado de la Sección 1</h2>
+            <p>Contenido descriptivo de la primera sección. Este texto será accesible para lectores de pantalla.</p>
+        </section>
+
+        <section id="seccion2" aria-labelledby="titulo-seccion2">
+            <h2 id="titulo-seccion2">Encabezado de la Sección 2</h2>
+            <p>Otro bloque de contenido accesible. Incluye consideraciones de accesibilidad como el uso de roles y etiquetas adecuadas.</p>
+        </section>
+
+        <section id="seccion3" aria-labelledby="titulo-seccion3">
+            <h2 id="titulo-seccion3">Encabezado de la Sección 3</h2>
+            <p>Más contenido accesible. Asegúrate de que todas las imágenes incluyan atributos <code>alt</code> si las añades.</p>
+        </section>
+    </main>
+
+    <!-- Pie de página accesible -->
+    <footer role="contentinfo">
+        <p>&copy; 2024 Mi Sitio Web. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

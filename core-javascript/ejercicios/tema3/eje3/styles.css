@@ -1,0 +1,74 @@
+/* Estilos por defecto (modo claro) */
+body {
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Asegurar suficiente contraste para accesibilidad */
+a {
+    color: #1a0dab;
+}
+
+/* Modo oscuro detectado automáticamente por el sistema */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #ffffff;
+    }
+
+    a {
+        color: #bb86fc;
+    }
+}
+
+/* Estilo básico para el menú */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Accesibilidad visual para encabezados */
+h1, h2 {
+    color: #051a79;
+    margin-bottom: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+    h1, h2 {
+        color: #ffffff;
+    }
+}
+
+/* Margen para las secciones */
+section {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+@media (prefers-color-scheme: dark) {
+    footer {
+        background-color: #1e1e1e;
+        color: #ffffff;
+    }
+}
