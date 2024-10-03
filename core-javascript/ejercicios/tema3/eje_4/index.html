@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+  
+    <title>RUEDANATOR</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+
+</head>
+<body>
+
+    <h1>RUEDANATOR</h1>
+
+    <div class="rueda">
+        <img src="rueda.webp" /><br>
+    </div>
+
+    <h4>Introduce el diámetro y el grosor de tu rueda</h4>
+
+    <div class="pregunta">
+        <label for="diametro">Introduce el diámetro de la rueda <br>(en metros):</label>
+        <br>
+        <input type="number" id="diametro" step="0.001"><br>
+    </div>
+
+    <div class="pregunta" >
+        <label for="grosor">Introduce el grosor de la rueda <br>(en metros):</label>
+        <br>
+        <input type="number" id="grosor" step="0.001" ><br>
+    </div>
+
+    <button onclick="analiza_ruedas()">Analizar Ruedas</button>
+
+    <div id="resultado"></div>
+
+
+
+</body>
+</html>

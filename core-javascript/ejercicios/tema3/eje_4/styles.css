@@ -1,0 +1,23 @@
+
+body {
+    background-color: #595959; 
+    font-family: Arial, sans-serif;
+    color: #bae03d;  
+}
+
+.rueda {
+    width: 20px;
+    height: 20px; 
+    background-color: #3a3a3a; 
+    margin: 1px auto; 
+    
+}
+
+.pregunta {
+    width: 25%;
+    background-color: #3a3a3a;  
+    border-radius: 10px; 
+    padding: 20px;
+    margin: 10px;
+    color: #bae03d; 
+}
