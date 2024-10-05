@@ -13,27 +13,29 @@
 
     <h1>RUEDANATOR</h1>
 
-    <div class="rueda">
+    <div class="tyre">
         <img src="rueda.webp" /><br>
     </div>
 
     <h4>Introduce el diámetro y el grosor de tu rueda</h4>
 
-    <div class="pregunta">
-        <label for="diametro">Introduce el diámetro de la rueda <br>(en metros):</label>
+    <div class="query">
+        <label for="diameter">Introduce el diámetro de la rueda <br>(en metros):</label>
         <br>
-        <input type="number" id="diametro" step="0.001"><br>
+        <input type="number" id="diameter" step="0.001"><br>
     </div>
 
-    <div class="pregunta" >
-        <label for="grosor">Introduce el grosor de la rueda <br>(en metros):</label>
+    <div class="query" >
+        <label for="thickness">Introduce el grosor de la rueda <br>(en metros):</label>
         <br>
-        <input type="number" id="grosor" step="0.001" ><br>
+        <input type="number" id="thickness" step="0.001" ><br>
     </div>
 
-    <button onclick="analiza_ruedas()">Analizar Ruedas</button>
+    <button onclick="analyze_wheels()">Analizar Ruedas</button>
 
-    <div id=""></div>
+    <h2>
+        <div class="query" id="result"></div>
+    </h2>
 
 
 
