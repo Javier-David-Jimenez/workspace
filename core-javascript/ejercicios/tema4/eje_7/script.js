@@ -1,7 +1,7 @@
 function learn_multiply() {
     let x = 1; 
     let question_div = document.getElementById('question_div'); 
-    let = document.getElementById('result_div'); 
+    let result_div = document.getElementById('result_div'); //me comi el result_div al cambiarle los nombres pero seguia funcionando por eso no me dic cuenta
 
     function show_multiply() {
         while (5 == 5) { 
