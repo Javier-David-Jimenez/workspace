@@ -1,0 +1,11 @@
+/*descendientes*/
+
+#cuerpo_principal a div {
+    background-color: rgb(56, 132, 85); /* Fondo naranja fuerte para los divs descendientes */
+  }
+
+  #cuerpo_principal a {
+    color: red;        /* Texto rojo */
+    font-weight: bold; /* Texto en negrita */
+  }
+  

@@ -1,4 +1,4 @@
-function consultarPrecio(idioma) {
+function consultar_precio(idioma) {
     // Preguntar el producto al cliente
     let producto = prompt("¿De qué producto quieres saber el precio? (Ejemplo: merluza, atún, salmón)").toLowerCase();
 
