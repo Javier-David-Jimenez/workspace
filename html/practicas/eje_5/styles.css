@@ -1,18 +1,18 @@
 table {
-     
+    border: 1px solid black;
     border-collapse: separate;
   }
-  th, td {
-    border: 3px solid black;
+th, td {
+    border: 1px solid black;
     padding: 4px;
     text-align: center;
   }
 
-  td:first-child,th:first-child {
+td:first-child,th:first-child {
     background-color: #9cf61f; /* Color verde amarillento */
   }
 
-  thead::before {
+section::before {
   content: 'Mi horario agile inventado:';
 }
 
@@ -21,3 +21,21 @@ th + th {
     font-weight: 800;
     text-transform: uppercase;
   }
+
+td[rowspan="2"] {
+    background-color: rgb(255, 0, 0);
+  }
+
+td[colspan="5"] {
+    background-color: rgb(255, 251, 0);
+    font-size: large;
+    color: rgb(156, 156, 156);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+/*
+  tr>td:last-child::marker {
+    content: ' ';
+}
+/*
