@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    flex-direction: column; /* Permite que el título y el cronómetro se coloquen uno debajo del otro */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #595959; /* Color de fondo de la página */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #bae03d;  
+    margin: 0; /* Elimina el margen predeterminado del body */
+}
+
+h1 {
+    margin-bottom: 20px; /* Espacio entre el título y el cronómetro */
+}
+
+.crono {
+    width: 55%;
+    background-color: rgba(58, 58, 58, 0.8); /* Fondo semi-transparente para mejor legibilidad */
+    border-radius: 10px; 
+    padding: 20px;
+    margin: auto;
+    color: #bae03d;
+    font-size: xx-large;
+    text-align: center; /* Asegura que el texto esté centrado */
+}

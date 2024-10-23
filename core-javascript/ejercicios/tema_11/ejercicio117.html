@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 116 - Cambiar Número de Artículo</title>
+    <script src="ejercicio117.js" defer></script>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Obtener artículo por número</h1>
+
+    <label for="articleId">Número de artículo:</label>
+    <input type="number" id="articleId" min="1" value="1" />
+    <button id="fetchButton">Obtener Artículo</button>
+    
+    <div id="article"></div> <!-- Aquí se mostrará el artículo -->
+    <div id="error" class="error"></div> <!-- Aquí se mostrarán los errores -->
+
+</body>
+</html>
+

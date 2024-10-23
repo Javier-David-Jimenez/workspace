@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 116 - Obtener Títulos y Artículos</title>
+    <script src="ejercicio118.js" defer></script>
+    <style>
+        .error {
+            color: red;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Obtener Artículos</h1>
+
+    <button id="fetchTitlesButton">Obtener Todos los Títulos</button>
+    <button id="fetchAllButton">Obtener Todos los Artículos</button>
+    
+    <div id="titleList"></div> <!-- Aquí se mostrarán los títulos -->
+    <div id="articleCount"></div> <!-- Aquí se mostrará el número de artículos -->
+    <table id="articlesTable">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Contenido</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Aquí se llenarán los artículos -->
+        </tbody>
+    </table>
+    <div id="error" class="error"></div> <!-- Aquí se mostrarán los errores -->
+
+</body>
+</html>
