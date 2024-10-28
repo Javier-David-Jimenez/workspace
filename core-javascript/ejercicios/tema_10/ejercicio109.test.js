@@ -2,24 +2,25 @@ const { updateTimer, startTimer, stopTimer } = require('./ejercicio109');
 
 jest.useFakeTimers();
 
-describe('Timer Functionality Tests', () => {
+let minutes = 0; 
+let seconds = 0;
+let isRunning = false;
+let interval; 
 
+describe('Timer Functionality Tests', () => {
     beforeEach(() => {
-        
         minutes = 0;
         seconds = 0;
         isRunning = false;
-        clearInterval(interval);
+        jest.clearAllTimers(); 
     });
 
     test('The updateTimer function should increment seconds correctly', () => {
-        
         expect(updateTimer()).toEqual({ minutes: "00", seconds: "01" });
     });
 
     test('The updateTimer function should increment minutes after 60 seconds', () => {
-        
-        for (let i = 0; i < 60; i =+ 1) {
+        for (let i = 0; i < 60; i += 1) { 
             updateTimer();
         }
         expect(updateTimer()).toEqual({ minutes: "01", seconds: "00" });
@@ -30,7 +31,7 @@ describe('Timer Functionality Tests', () => {
         expect(isRunning).toBe(true);
 
         jest.advanceTimersByTime(2000);
-        expect(updateTimer()).toEqual({ minutes: "00", seconds: "03" }); // 2 more seconds passed
+        expect(updateTimer()).toEqual({ minutes: "00", seconds: "03" });
     });
 
     test('The stopTimer function should stop the timer', () => {
@@ -38,5 +39,4 @@ describe('Timer Functionality Tests', () => {
         stopTimer();
         expect(isRunning).toBe(false);
     });
-
 });
