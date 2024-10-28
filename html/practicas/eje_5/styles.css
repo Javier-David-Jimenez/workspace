@@ -30,9 +30,9 @@ tbody > tr:first-of-type {
 }
 
 td[rowspan="2"] {
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(238, 0, 0);
     font-size: larger;
-    font-style: italic;
+    font-style: oblique;
   }
 
 td[colspan="5"] {
@@ -49,6 +49,6 @@ tr:last-child > td:last-child{
     font-style: oblique;
   }
 .for {
-  background-color: rgb(164, 219, 219);
-  font-size: x-small;
+  background-color: rgb(126, 194, 194);
+  font-size: smaller;
 }

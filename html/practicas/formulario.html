@@ -1,0 +1,61 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+  <title> EJERCICIO 1 </title>
+    <style>
+     
+        ul {
+            list-style-type: "🚀";
+        }
+ 
+        ol {
+            list-style-type: lower-roman;
+        }
+
+        ol>li:nth-child(even) {
+            background-color: grey;
+        }
+  /* pseudo-elemento marker */
+        ul>li::marker {
+            content: '✝ ';
+            font-size: 1.1em;
+        }
+
+        ul>li:last-child::marker {
+            content: '✔️ ';
+            font-size: 1.5em;
+        }
+
+
+    </style>
+</head>
+
+<body>
+<form action="/pagina_que_recibe_datos" method="post">
+    <br>
+    <label for="name">Tu Nombre:</label>
+    <input type="text" id="name" name="user_name">
+    <br>
+    <label for="mail">Correo electrónico:</label>
+    <input type="email" id="mail" name="user_mail">
+    <br>
+    <label for="msg">Mensaje:</label>
+    <textarea id="msg" name="user_message"></textarea>
+    <br>
+    <button type="submit">Envíe su mensaje</button>
+    <br>
+
+    <label for="pass">Password (8 caracteres min):</label>
+    <input type="password" id="pass" name="password" minlength="8" required>
+    <br>
+    <label for="phone">Enter your phone number:</label>
+    <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+
+
+</form>
+
+</body>
+</html>
