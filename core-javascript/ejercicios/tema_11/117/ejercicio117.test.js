@@ -1,3 +1,4 @@
+/* eslint-env browser */
 const { fetchArticle } = require('./ejercicio117');
 
 describe('fetchArticle', () => {
