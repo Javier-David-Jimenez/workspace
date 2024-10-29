@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; 
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 20px auto; 
+}
+
+td {
+    padding: 1%; 
+}
+
+img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px; 
+}
+
+#imagen2 {
+    filter: grayscale(100%);
+    
+}
+
+#imagen3 {
+    filter: sepia(100%); 
+}
+
+#imagen4 {
+    filter: blur(5px); 
+}
+
+#imagen5 {
+    filter: brightness(50%); 
+}
+
+#imagen6 {
+    filter: contrast(200%); 
+}
+
+#imagen7 {
+    filter: hue-rotate(90deg); 
+}
+
+#imagen8 {
+    filter: invert(100%); 
+}
+
+#imagen9 {
+    filter: saturate(200%);
+
+}
+
+#imagen10 {
+    filter: opacity(0.5) sepia(100%); 
+}
+
+#imagen11 {
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)) hue-rotate(180deg); 
+}
+
+#imagen12 {
+    filter: grayscale(50%) brightness(150%) hue-rotate(180deg); 
+}
