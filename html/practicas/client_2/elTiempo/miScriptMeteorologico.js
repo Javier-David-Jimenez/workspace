@@ -32,14 +32,16 @@ function ajaxCheckWeather() {
         .catch(error => alert('error', error));
 }
 
-
-/*funcion principal que gestiona la respuesta a la llamada AJAX*/
+/*funcion principal que gestiona la respuesta a la llamada AJAX
+le decimos que coger entre los datos  que nos devuelve la llamada
+*/
 
 function responseManager(resp) {
     console.log(resp);
     cambiaIcono(resp.weather[0].icon);
     muestraDesc(resp.weather[0].description);
     muestraTemp(resp.main.temp);
+    muestraHum(resp.main.humidity);
 }
 /*funciones auxiliares para cambiar el HTML/CSS*/
 
@@ -62,8 +64,17 @@ function muestraUbicacion(ubicacion) {
     elemento.innerHTML = ubicacion;
 }
 
+/*coge la temperatura en kelvin y lo pasa a Cº como cogia 2 decimales del ajax
+le puse el toFixed(2) porque me daba muchos decimales el ºC es un miniextra
+*/
 function muestraTemp(temp) {
     let temperatura = document.getElementById('temp');
-    temperatura.innerHTML = temp;
+    let tempCelsius = temp - 273.15;
+    temperatura.innerHTML = tempCelsius.toFixed(2) + " °C";
 }
 
+//Cogemos la humedad y la metemos en el html en humidity
+function muestraHum(humidity) {
+    let humedad = document.getElementById('humidity');
+    humedad.innerHTML = humidity;
+}

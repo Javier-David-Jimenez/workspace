@@ -91,3 +91,8 @@ bower_components/
 
 # Optional stylelint cache
 .stylelintcache
+
+
+
+#Ignora este video
+chrome.mp4
