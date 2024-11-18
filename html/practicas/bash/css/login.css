@@ -1,0 +1,57 @@
+/* Estilos globales */
+body {
+    background-color: rgb(131, 170, 185);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Tres filas: header, formulario, footer */
+    height: 100vh;  /* Asegura que la página ocupe toda la altura de la ventana */
+}
+
+/* Estilos para el formulario de login */
+.formulario {
+    background-color: white;
+    padding: 30px;
+    max-width: 400px;
+    margin: 0 auto;  /* Centra el formulario en la página */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.formulario h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(7, 116, 179);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 14px;
+    color: rgb(7, 116, 179);
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(7, 116, 179);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: rgb(5, 95, 150);
+}

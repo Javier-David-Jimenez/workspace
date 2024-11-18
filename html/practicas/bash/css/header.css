@@ -1,0 +1,33 @@
+/* Estilo para el contenedor del header */
+header {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    background-color: rgb(7, 116, 179);
+    padding: 20px;
+    color: white;
+}
+
+/* Estilo para los tres divs dentro del header */
+header .presa,
+header .che,
+header .datos_personales {
+    text-align: center;
+}
+
+/* Logo de la CHE (div central) */
+header .che img {
+    max-width: 100%;
+    height: auto; /* Para mantener la proporción de la imagen */
+}
+
+/* Texto del div "presa" */
+header .presa {
+    font-size: xx-large;
+    color: white;
+}
+
+/* Texto del div "datos_personales" */
+header .datos_personales {
+    color: white;
+}

@@ -1,0 +1,66 @@
+/* Estilos generales */
+body {
+    background-color: rgb(131, 170, 185);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: auto auto auto auto; 
+}
+
+
+/* Estilos para la sección */
+section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 80%; 
+    margin: 0 auto; 
+}
+
+/* Estilos para los contenedores <nav> */
+section nav {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    background-color: rgb(165, 212, 235);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Efecto de hover para ampliar */
+section nav:hover {
+    transform: scale(1.2);
+    box-shadow: 0 9px 14px rgba(0, 0, 0, 0.6);
+}
+
+section nav h1 {
+    margin: 0;
+    font-size: 1.8em;
+    text-align: center;
+    font-family: 'Courier New';
+    font-weight: 700;
+    color: rgb(204, 12, 12);
+}
+/*ampliamos la gŕafica mas que el resto*/
+#grafica {
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center;
+}
+
+#grafica:hover {
+    transform: scale(2);
+}
+
+
+/* Ajustes para que se vea bien en móviles */
+@media (max-width: 768px) {
+    section {
+        grid-template-columns: 1fr; 
+    }
+}
+
+

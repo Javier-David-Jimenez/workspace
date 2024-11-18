@@ -1,0 +1,25 @@
+footer {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    background-color: rgb(7, 116, 179);
+    padding: 20px;
+}
+
+footer .presa,
+footer .estamos,
+footer .ministerio {
+    text-align: center;
+}
+
+footer .ministerio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*mantenemos las imagenes de abajo a la derecha
+son dos y las junto para que parezcan1igualadas*/
+footer .ministerio img {
+    height: 50px; 
+    object-fit: contain; 
+}
