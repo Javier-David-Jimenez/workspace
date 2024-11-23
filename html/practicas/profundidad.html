@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+  <title> EJERCICIO 1 </title>
+    <style>
+        
+        .positioned_s {
+            position: static;
+            background: yellow;
+        }
+        .positioned_abs {
+            position: absolute;
+            background: red;
+            top: 30px;
+            left: 30px;
+        }
+        .mi_prof {
+            z-index: -1;
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+
+    <p class="positioned_s">…</p>
+    <p class="positioned_abs mi_prof">1</p>
+    <p class="positioned_abs">2</p>
+    <p class="positioned_abs">3</p>
+    <p class="positioned_s">…</p>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+#cuerpo_principal a {
+    color: red;       
+    font-weight: bold; 
+  }
+
+  #cuerpo_principal a ~ a {
+    color: green;        /* HERMANOS */
+    font-weight: bold;  
+    background-color: blue;
+  }
+
+  .cabecera_link_otro_nivel::before {
+    content: '<<< VIVA MEXICO >>>';
+    color: green;
+    font-weight: bolder;
+  }
+  

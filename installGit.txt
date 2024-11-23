@@ -1,0 +1,6 @@
+   70  git remote set-url origin git@github.com:Javier-David-Jimenez/workspace.git
+   71  git add .
+   72  git commit -m "First commit"
+   73  git push origin master
+   74  history 6 >> ..\Git.txt
+   75  history 6 >> \install\Git.txt

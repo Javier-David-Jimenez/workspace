@@ -1,0 +1,8 @@
+p::first-line {
+    color: blue;
+    text-transform: uppercase;
+  }
+
+  #cuerpo_principal > a > div {
+    background-color: rgb(240, 247, 26); /* hijos de hijos*/
+  }

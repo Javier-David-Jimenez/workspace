@@ -1,0 +1,95 @@
+/* Estilo general para toda la página */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #FFD580; /* Fondo naranja claro */
+    font-family: 'Courier New', Courier, monospace; /* Estilo de letra tipo pizzería */
+    color: #2B2B2B; /* Color casi negro */
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Encabezados h1 y h2 definidos */
+h1, h2 {
+    font-family: 'Brush Script MT', cursive; /* Estilo más decorativo */
+    color: #2B2B2B;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+
+
+
+/* Div principal que contiene casi toda la web */
+#cuerpo_principal {
+    width: 95%; 
+    border: 5px solid #473631; 
+    border-radius: 15px; 
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #FFF8E1;
+}
+
+div {
+    border-radius: 10px;
+    align-content: center;
+    font-size: 14px;
+    font: bolder;
+}
+
+/* Clase para los divs de link_otro_nivel */
+.link_otro_nivel {
+    width: 30%; 
+    display: inline-block; 
+    margin: 10px;
+    padding: 20px;
+    border: 3px solid #2B2B2B; 
+    text-align: center;
+    transition: transform 0.3s ease-in-out; 
+    background-color: #FFF0D4; 
+    cursor: pointer;
+}
+
+
+.link_otro_nivel:hover {
+    transform: scale(1.05); /* Crecimiento suave */
+}
+
+/* Para asegurar que los .link_otro_nivel se vean bien en dispositivos pequeños */
+@media (max-width: 768px) {
+    .link_otro_nivel {
+        width: 90%; /* En móviles ocupará casi todo el ancho */
+    }
+}
+
+.cabecera_link_otro_nivel p {
+    font-weight: bold; 
+    width: 40%; 
+    display: inline-block;
+}
+
+.cuerpo_pie_pagina ul {
+    display: flex; 
+    list-style-type: none; 
+    padding: 0;
+    margin: 0;
+  }
+  
+  .cuerpo_pie_pagina ul li {
+    margin-right: 10px; /* Espacio entre los enlaces */
+  }
+  
+  .cuerpo_pie_pagina ul li a {
+    text-decoration: none; /* Quitar el subrayado de los enlaces */
+    color: blue; /* Color de los enlaces */
+  }

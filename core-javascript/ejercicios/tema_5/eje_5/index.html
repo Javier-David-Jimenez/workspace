@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+  
+    <title>Cuenta coincidencias </title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="ejercicio5_5.js"></script>
+
+</head>
+<body>
+
+    <h1>Cuantos números hay en:</h1>
+   
+
+    <h4>Introduce un numero en el primer cuadro 1 digito en el segundo y comprueba cuantas veces se repite</h4>
+
+    <div class="query">
+        <label for="number">Introduce el numero para buscar las coincidencias con el digito</label>
+        <br>
+        <input type="number" id="number" ><br>
+    </div>
+
+    <div class="query" >
+        <label for="digit">Introduce un numero de 0 a 9</label>
+        <br>
+        <input type="number" id="digit" ><br>
+    </div>
+
+    <button onclick="countDigit()">¿Cuantas veces esta el digito?</button>
+
+    <h2>
+        <div class="query" id="result"></div>
+    </h2>
+
+
+
+</body>
+</html>

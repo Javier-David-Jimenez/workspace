@@ -1,0 +1,79 @@
+/* Estilos para toda la pagina */
+body {
+    background-color: rgb(131, 170, 185);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    gap: 20px;
+}
+
+/* Configuración uniforme para todos los navs */
+section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas para los navs */
+    gap: 20px;
+}
+
+section nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Tres columnas internas para logo, nombre e imagen */
+    background-color: rgb(165, 212, 235);
+    padding: 10px;
+    align-items: center;
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease-in-out;
+}
+section nav:hover {
+    transform: scale(2); /* Aumenta el tamaño al doble */
+    box-shadow: 0 9px 14px rgba(0, 0, 0, 0.6);
+}
+
+section nav .logo,
+section nav .nombre,
+section nav .imagen {
+    text-align: center;
+}
+
+section nav .imagen img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilo para nav con clase Oficina */
+nav.Oficina {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales para los div internos */
+    gap: 10px;
+    padding: 20px;
+    background-color: rgb(165, 212, 235);
+    align-items: stretch;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/*asi ampliamos las direcciones de las oficinas 
+pero poco, menos que el mapa que coge la otra ampliacion*/
+nav.Oficina:hover {
+    transform: scale(1.1);
+    box-shadow: 0 9px 14px rgba(0, 0, 0, 0.6);
+}
+
+/* Ajustes para los div internos */
+nav.Oficina div {
+    display: flex;
+    flex-direction: column; /* Coloca el contenido en columna (verticalmente) */
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    section {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+}

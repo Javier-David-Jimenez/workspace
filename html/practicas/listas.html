@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+  <title> EJERCICIO 1 </title>
+    <style>
+     
+        ul {
+            list-style-type: "🚀";
+        }
+ 
+        ol {
+            list-style-type: lower-roman;
+        }
+
+        ol>li:nth-child(even) {
+            background-color: grey;
+        }
+  /* pseudo-elemento marker */
+        ul>li::marker {
+            content: '✝ ';
+            font-size: 1.1em;
+        }
+
+        ul>li:last-child::marker {
+            content: '✔️ ';
+            font-size: 1.5em;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <ul>
+        <li>Manzana</li>
+        <li>Banana</li>
+        <li>Naranja</li>
+    </ul>
+    
+    <ol>
+    
+            <li>Primer paso</li>
+        
+            <li>Segundo paso</li>
+        
+            <li>Tercer paso</li>
+        
+    </ol>
+    
+
+    <h3>Corredores a partir del undécimo (11):</h3>
+
+    <!-- listas ordenadas-->
+
+    <ol class="mi_lista_ordenada">
+
+        <li value="11"> Juanita </li>
+
+        <li> Pepito </li>
+
+        <li> Jaimito </li>
+
+        <li> Nombre </li>
+
+        <li> Nombre </li>
+
+        <li> Nombre </li>
+
+        <li> Nombre </li>
+
+        <li> Nombre </li>
+
+        <li> Nombre </li>
+
+    </ol>
+ 
+    <h3>Versiones de HTML:</h3>
+    <!-- listas no ordenadas-->
+    <ul class="mi_lista_no_ordenadas">
+        <li type="square"> HTML 1 </li>
+        <li> HTML 2 </li>
+        <li> HTML 3 </li>
+        <li> HTML 4 </li>
+        <li> HTML 5 </li>
+    </ul>
+
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <title> PATATA_WEB </title>
+
+     <style>
+              p ~ span {
+          color: red;
+          } 
+
+          div.mi_clase p {
+          color: #2F2
+          }
+
+          li + li {
+          color: #f00;
+          }
+
+          li:first-of-type + li {
+          background: green;
+          }
+          div{
+          border:1px solid red;
+          margin:1em;
+          }
+          .bord_0{
+          border-width: 10px ;
+          }
+          .bord_1{
+          border-width: 2px 4px ;
+          }
+          .bord_2{
+          border-width: 2px 4px 6px ;
+          }
+          .bord_3{
+          border-width:  2px 4px 6px 1px ;
+          }
+          .bord_4{
+          border-width: 0;
+          }
+
+     </style>
+</head>
+
+<body>
+
+     <div>
+          <span>Esto no es de color tomate.</span>
+          <p> Parrafo 1 </p>
+          <div> Elemento con contenido.</div>
+          <span>Span de color tomate.</span>
+          <span>Span de color tomate.</span>
+          <div>Cualquier contenido</div>
+          <p> parrafo 2 </p>
+          <h1>Cualquier contenido</h1>
+          <span> ¿Span de color tomate ?</span>
+      </div>
+ 
+      <div>
+          <p>¿Qué color tengo?</p>
+          <div class="mi_clase">
+              <div>
+                  <div>
+                      <p>¿Qué color tengo?</p>
+                      <p>¿Qué color tengo?</p>
+                  </div>
+                  <p>¿Qué color tengo?</p>
+              </div>
+          </div>
+          <p>¿Qué color tengo?</p>
+      </div>
+
+      <ul>
+          <li>Primero</li>
+          <li>Segundo</li>
+          <li>Tercero</li>
+          <li>Cuarto</li>
+      </ul>
+     
+      
+     <body style="background:green">
+          <div style="background:blue" class="bord_0">
+          <p>in div1</p>
+          <div style="background:yellow" class="bord_1">
+               <p>in div2</p>
+          </div>
+          <div style="background:yellow" class="bord_2">
+               <p>in div3</p>
+          </div>
+          </div>
+     </body>
+
+
+
+</body>
+</html>
