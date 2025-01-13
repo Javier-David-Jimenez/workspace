@@ -8,6 +8,9 @@ npm init
 
 instalamos express en el proyecto y lo añade a package.json con el --save
 
+en scripts de package.json
+"start": "node app.js",
+
 npm install express --save
 
 creamos el servidor con express
@@ -35,3 +38,22 @@ app.listen(port, () => {
   console.log(`Example server listening on http://localhost:${port}`);
 });
 
+
+
+
+
+
+
+npm install nodemon --save-dev
+
+en scripts de package.json
+
+"dev": "nodemon app.js"
+
+
+
+
+
+instalamos cookie parser
+
+npm install cookie-parser
