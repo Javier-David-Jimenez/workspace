@@ -141,7 +141,7 @@ app.get("/", (req, res) => {
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).send("Algo ha fallado!: " + err.message);
+  res.status(500).send("FALLO ERROR!: " + err.message);
 });
 
 // Creo el servidor en el puerto ${port}

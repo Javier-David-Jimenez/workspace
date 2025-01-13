@@ -48,7 +48,7 @@ npm install nodemon --save-dev
 
 en scripts de package.json
 
-"dev": "nodemon app.js"
+"dev": "nodemon app.js",
 
 
 
