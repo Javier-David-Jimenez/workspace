@@ -1,0 +1,15 @@
+{
+  "name": "clase2b",
+  "version": "1.0.0",
+  "description": "ejercicio clase2",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "app",
+    "express"
+  ],
+  "author": "JDJM",
+  "license": "ISC"
+}
