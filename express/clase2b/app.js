@@ -37,8 +37,42 @@ app.use("/user/:id" , (req, res, next) => {
  }
 );
 
+//////////////////////////77
 
-
+// Este ejemplo muestra una subpila de middleware que maneja
+// solicitudes GET a la ruta /user/:id.
+app.get("/book/:id",(req, res, next) => {
+  console. log("BOOK ID:" , req.params.id);
+  next();
+  },
+  (req, res, next) => {
+  res.send("Book info" );
+  }
+ );
+ // Manejador para la ruta / book/:id que imprime el book ID
+ // Este middleware nunca se ejecutará
+ app.get("/book/:id", (req, res, next) => {
+ res.end(req.params.id);
+ });
+/////////////////////////////////////////
+// Esto nos permite saltar de una subpila a otra sin tener que acabar esta pila
+// Subpila de middleware que maneja solicitudes GET a la ruta / student/:id.
+app.get("/student/:id",
+  (req, res, next) => {
+  // Si el student ID es 0, salta a la siguiente ruta 'special'
+  if (req.params.id == 0) next("route");
+  // en otro caso pasa el control al siguiente middleware 'regular'
+  else next(); //
+  },
+  (req, res, next) => {
+  // ‘renderiza’ una página regular
+  res.send("regular" );
+  }
+ );
+ // manejador para la ruta / student/:id que ‘renderiza’ una página especial
+ app.get("/student/:id", (req, res, next) => {
+ res.send("special" );
+ });
 
 /*
 // Defino la ruta que se llamará cuando se reciba una petición HTTP GET
