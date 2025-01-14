@@ -16,19 +16,24 @@ app.set('partials', __dirname + '/views/partials');
 app.get("/user/:name", (req, res) => {
   res.render('user',{name: req.params.name})
 })
-
-app.get("student/:id", (req, res) => {
+/*
+app.get("/student/:id", (req, res) => {
   res.render('student',{
-    title: 'Student',
-    id: req.params.id
-  })
+    title: 'Student', //le metemos el parametro title
+    id: req.params.id})
 })
-
+*/
 app.get("/clase/:asignatura", (req, res) => {
   res.render('clase',{asignatura: req.params.asignatura})
 })
 
 ////////////////////////////////////////////////
+// Subpila de middleware que maneja solicitudes GET a la ruta /
+
+
+
+
+
 
 
 /*
