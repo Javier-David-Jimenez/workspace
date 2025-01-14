@@ -8,6 +8,7 @@ const port = 3000;
 app.engine("html", mustacheExpress());
 app.set("view engine", "html");
 app.set("views", __dirname + "/views");
+app.set('partials', __dirname + '/views/partials');
 
 
 /////////////////////////////////////////////////
@@ -17,7 +18,14 @@ app.get("/user/:name", (req, res) => {
 })
 
 app.get("student/:id", (req, res) => {
-  res.render('student',{id: req.params.id})
+  res.render('student',{
+    title: 'Student',
+    id: req.params.id
+  })
+})
+
+app.get("/clase/:asignatura", (req, res) => {
+  res.render('clase',{asignatura: req.params.asignatura})
 })
 
 ////////////////////////////////////////////////
