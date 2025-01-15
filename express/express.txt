@@ -8,6 +8,8 @@ npm init
 
 instalamos express en el proyecto y lo añade a package.json con el --save
 
+npm install express --save
+
 en scripts de package.json
 "start": "node app.js",
 
