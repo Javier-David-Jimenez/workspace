@@ -5,8 +5,9 @@ const app = express();
 // Declaro el puerto de escucha
 const port = 3000;
 
+app.use('/static' , express.static(__dirname + '/public' ))
 
-
+// ½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½
 // La función se ejecuta cada vez que la aplicación recibe una solicitud.
 app.use((req, res, next) => {
  console. log("Time:", Date.now());
@@ -22,6 +23,21 @@ next();
 app.get("/user/:id" , (req, res, next) => {
 res.send("USER  Es un melon");
 });
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5%%
+
+// Declaro los middlewares que quiero usar
+app.use(express.json());
+app.use(express.text());
+app.use(express.urlencoded ({extended: false}));
+// Defino la ruta que se llamará cuando se recibauna petición HTTP POST
+// en la dirección '/user'
+app.post('/user', (req, res) => {
+ // Imprime por consola el tipo del body y el body parseado
+ console. log(typeof(req.body), req.body);
+ res.end();
+});
+
+
 
 
 ////////////////////////////////
@@ -73,6 +89,7 @@ app.get("/student/:id",
  app.get("/student/:id", (req, res, next) => {
  res.send("special" );
  });
+
 
 /*
 // Defino la ruta que se llamará cuando se reciba una petición HTTP GET
