@@ -1,5 +1,9 @@
 // Se carga el módulo de Express
 const express = require("express");
+//importo de routes las tasks
+const task_router = require("./routes/task");
+const cookieParser = require("cookie-parser");
+
 // Creo la aplicación Express
 const app = express();
 // Declaro el puerto de escucha
@@ -7,8 +11,24 @@ const port = 3000;
 
 app.use('/static' , express.static(__dirname + '/public' ))
 
+app.use('/task', task_router);
+
+//cargamos al funcion de cookie parser
+app.use(cookieParser());
+//ruta para asignar una cookie
+// Ruta para asignar una cookie
+app.get('/cookie' , (req, res) => {
+  res.cookie('customCookie' , 'cookie value').send('Cookie is set' )
+ });
+ // Obtengo los valores de las cookies
+ app.get('/check-cookie' , (req, res) => {
+ // Muestro las cookies por consola
+  console. log('Cookies: ' , req.cookies);
+ res.end(req.cookies.customCookie )
+ });
 // ½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½½
 // La función se ejecuta cada vez que la aplicación recibe una solicitud.
+/*       LAS METEMOS EN TASKS.JS
 app.use((req, res, next) => {
  console. log("Time:", Date.now());
 next();
@@ -23,6 +43,7 @@ next();
 app.get("/user/:id" , (req, res, next) => {
 res.send("USER  Es un melon");
 });
+*/
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5%%
 
 // Declaro los middlewares que quiero usar
@@ -104,7 +125,10 @@ app.get("/", (req, res) => {
 
 */
 
-
+app.use((err, req, res, next) => {
+  console. error(err.stack);
+ res.status(500).send("Algo ha fallado!: " + err.message);
+ });
 
 
 
