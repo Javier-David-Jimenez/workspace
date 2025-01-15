@@ -55,7 +55,7 @@ app.use(express.urlencoded ({extended: false}));
 app.post('/user', (req, res) => {
  // Imprime por consola el tipo del body y el body parseado
  console. log(typeof(req.body), req.body);
- res.end();
+ res.end(req.body.title); //ejercicio1
 });
 
 
@@ -94,6 +94,7 @@ app.get("/book/:id",(req, res, next) => {
 /////////////////////////////////////////
 // Esto nos permite saltar de una subpila a otra sin tener que acabar esta pila
 // Subpila de middleware que maneja solicitudes GET a la ruta / student/:id.
+/* lo comentamos apra que entre el tratamiento de errores de debajo
 app.get("/student/:id",
   (req, res, next) => {
   // Si el student ID es 0, salta a la siguiente ruta 'special'
@@ -111,7 +112,7 @@ app.get("/student/:id",
  res.send("special" );
  });
 
-
+*/
 /*
 // Defino la ruta que se llamará cuando se reciba una petición HTTP GET
 // en la dirección '/'
@@ -124,6 +125,24 @@ app.get("/", (req, res) => {
 });
 
 */
+
+
+// Subpila de middleware que maneja solicitudes GET a la ruta /student/:id.
+app.get("/student/:id",
+  (req, res, next) => {
+    if (isNaN(Number(req.params.id))) throw new
+Error('Student ID inválido, introduzca un número' );
+ // Si el student ID es 0, salta a la siguiente ruta'special'
+    if (req.params.id == 0) next("route");
+ // en otro caso pasa el control al siguiente middleware 'regular'
+    else next(); //
+  },
+  (req, res, next) => {
+ // 'renderiza' una página regular
+  res.send("regular" );
+  }
+);
+
 
 app.use((err, req, res, next) => {
   console. error(err.stack);
