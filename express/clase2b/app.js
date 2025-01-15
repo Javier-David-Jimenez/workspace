@@ -132,7 +132,11 @@ app.get("/student/:id",
   (req, res, next) => {
     if (isNaN(Number(req.params.id))) throw new
 Error('Student ID inválido, introduzca un número' );
+
+ // Ejercicio 2
+    if (req.params.id > 99) next(Error('Student ID no puede ser mayor de 99'));
  // Si el student ID es 0, salta a la siguiente ruta'special'
+ 
     if (req.params.id == 0) next("route");
  // en otro caso pasa el control al siguiente middleware 'regular'
     else next(); //
