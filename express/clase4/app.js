@@ -39,10 +39,13 @@ app.post("/students",
   }
 });
 
-// Ejercicio 1
+/*        Ejercicio 1
+
+curl -v -X GET http://localhost:3000/students/1
+curl -v -X GET http://localhost:3000/students/2
+*/
 app.get("/students/:id", (req, res) => {
-  students
-    .getById(req.params.id)
+  students.getById(req.params.id)
     .then((results) => {
       console.log(results);
       if (results) {
@@ -56,15 +59,16 @@ app.get("/students/:id", (req, res) => {
       res.status(500).json({ message: err.message });
     });
 });
+/*
+Ejercicio 2
+npx migrate:make add_emailx migrate:make add_email
+modify 20250116140240_add_email_to_students.js
+ejecutar: knex migrate:all
 
-// Ejercicio 2
-// knex migrate:make add_email
-// modify migrations/[TIMESTAMP]_add_email.js
-// ejecutar: knex migrate:all
-// introducir un registro con:
-// curl -v -POST http://localhost:3000/students -H "content-type: application/json" -d '{"name": "Fausto", "last_name": "López", "date_of_birth": "1987-04-25", "email": "flopez@veridas.com"}'
-// curl -v -POST http://localhost:3000/students -H "content-type: application/json" -d '{"name": "", "last_name": "López", "date_of_birth": "1987-04-25", "email": "flopez@veridas.com"}'
+postear estudiantes 
+curl -v -POST http://localhost:3000/students -H "content-type: application/json" -d '{"name": "Juan", "last_name": "Hernández", "date_of_birth": "1997-08-22", "email": "jhernan@gmail.com"}'
 
+*/
 app.listen(port, () => {
   console.log(`Example server listening on http://localhost:${port}`);
 });
