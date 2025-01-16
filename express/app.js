@@ -35,6 +35,52 @@ app.all("/book", (req, res, next) => {
    next(); // pasar el control al siguiente callback
    });
 
+// Middleware para '/book'
+app.all("/book", (req, res, next) => {
+  console.log("Accediendo a la sección book...");
+  next(); // pasar el control al siguiente callback
+});
+
+// Rutas para '/book'
+app.get("/book", (req, res) => {
+  console.log("Response object properties: ", {
+    headers: res.getHeaders(),
+    statusCode: res.statusCode,
+  });
+  res.send("Solicitud con método GET");
+});
+
+app.post("/book", (req, res) => {
+  console.log("Response object properties: ", {
+    headers: res.getHeaders(),
+    statusCode: res.statusCode,
+  });
+  res.send("Solicitud con método POST");
+});
+
+app.put("/book/:id", (req, res) => {
+  console.log("Response object properties: ", {
+    headers: res.getHeaders(),
+    statusCode: res.statusCode,
+    params: req.params,
+  });
+  res.send("Solicitud con método PUT");
+});
+
+app.delete("/book/:id", (req, res) => {
+  console.log("Response object properties: ", {
+    headers: res.getHeaders(),
+    statusCode: res.statusCode,
+    params: req.params,
+  });
+  res.send("Solicitud con método DELETE");
+});
+
+
+
+
+
+//7////////////////////////////////77
 
 const cb0 = (req, res, next) => {
   console.log("CB0");
