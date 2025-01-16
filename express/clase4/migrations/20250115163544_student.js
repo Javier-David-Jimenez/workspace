@@ -8,13 +8,15 @@ exports.up = function(knex) {
         table.string("name");
         table.string("last name");
         table.date("date_of_birth");
-    });  
+        });  
 };
 
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
+
+//
 exports.down = function(knex) {
     return knex.schema.dropTableIfExists("students");
   
