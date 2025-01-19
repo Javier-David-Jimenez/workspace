@@ -2,26 +2,25 @@
 
 ## Arrancar PgAdmin con el script del `package.json`
 
-Ejecutamos el siguiente comando para iniciar los servicios:
+Ejecutamos el siguiente comando de package.jsonen la terminal 
+para iniciar los servicios dockers-compose:
 ```bash
 npm run start-services
 ```
 
 Accedemos a [http://localhost:8081](http://localhost:8081).
 
-## Configuración del `docker-compose.yml`
+## Configuración del PostgresSQL en PGADMIN 
 
-### PgAdmin
+sacamos datos del `docker-compose.yml`
+
+###      LOGIN de PgAdmin
 En la sección `services > pgadmin > environment`, configuramos lo siguiente:
 
 - **login**: `admin@local.host`
 - **password**: `password`
 
-En la sección `services > pgadmin > ports`, configuramos el puerto:
-```yaml
-ports:
-  - "8081:8080"
-```
+
 
 ### Crear un nuevo servidor en PgAdmin
 
@@ -34,6 +33,14 @@ En la sección `services > pgadmin > depends_on`, configuramos:
 ```yaml
 hostname: express-db
 ```
+
+
+En la sección `services > pgadmin > ports`, vemos el puerto del localhost por el que sale pero no lo configuramos dejamos el:
+
+ ####  5432 
+ 
+
+
 
 ### Base de datos (`express-db`)
 En la sección `services > express-db > environment`, configuramos:
