@@ -25,7 +25,7 @@ app.get("/students", (req, res) => {
   students.getAll().then((results) => res.json(results));
   });
 
-// con un curl metemos lso datos si faltan datos error
+// con un curl metemos lso datos si fallan datos  error
 app.post("/students", (req, res) => {
   if (!(req.body.name && req.body.last_name && req.body.date_of_birth)) {
     res.status(400).send("Faltan datos");
