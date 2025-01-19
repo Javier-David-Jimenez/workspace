@@ -11,6 +11,54 @@ app.use(express.json());
 app.get("/students", (req, res) => {
   students.getAll().then((results) => res.json(results));
 });
+
+
+/* ejercicio 5.1
+curl -v -X GET http://localhost:3000/students/3
+curl -v -X GET http://localhost:3000/students/2
+curl -v -X GET http://localhost:3000/students/5
+*/
+
+
+
+app.get("/students/:id", (req, res) => { 
+  students.getById(req.params.id)
+    .then((results) => {
+      console.log(results);
+      if (results) {
+        res.json(results);
+      } else {
+        res.status(404).json({ message: "Student doesn't exist" });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ message: err.message });
+    });
+});
+
+
+
+
+/* ejercicio 5.2
+ Ejercicio 2
+ sequelize migration:create --name add_email
+ modificar migrations/[TIMESTAMP]_add_email.js
+ ejecutar: sequelize db:migrate
+ rollback de la última migración: sequelize db:migrate:undo
+ rollback de todas las migraciones: sequelize db:migrate:undo:all
+ introducir un registro con:
+ curl -v -POST http://localhost:3000/students -H "content-type: application/json" -d '{"name": "Fausto", "last_name": "López", "date_of_birth": "1987-04-25", "email": "flopez@veridas.com"}'
+ curl -v -POST http://localhost:3000/students -H "content-type: application/json" -d '{"name": "", "last_name": "López", "date_of_birth": "1987-04-25", "email": "flopez@veridas.com"}'
+ No vemos los campos, luego, tenemos que actualizar el modelo.
+*/
+
+
+
+
+
+
+
 /*
         Ejercicio 3
 install xpress-validator: npm install --save express-validator
@@ -47,42 +95,10 @@ app.post("/students",
   }
 });
 
+
+
 //curl -v -POST http://localhost:3000/students -H "content-type: application/json" -d '{"name": "Juan", "last_name": "Hernández", "date_of_birth": "1997-08-22", "email": "jhernan@gmail.com"}'
 //curl -v -POST http://localhost:3000/students -H "content-type: application/json" -d '{"name": "Ana", "last_name": "Martínez", "date_of_birth": "1999-08-12", "email": "werwer~sasdad.com"}'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -94,21 +110,9 @@ curl -v -X GET http://localhost:3000/students/5
 curl -v -X GET http://localhost:3000/students/6
 curl -v -X GET http://localhost:3000/students/7
 */
-app.get("/students/:id", (req, res) => {
-  students.getById(req.params.id)
-    .then((results) => {
-      console.log(results);
-      if (results) {
-        res.json(results);
-      } else {
-        res.status(404).json({ message: "Student doesn't exist" });
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({ message: err.message });
-    });
-});
+
+
+
 /*
 Ejercicio 2
 npx migrate:make add_emailx migrate:make add_email
