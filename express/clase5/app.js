@@ -6,6 +6,8 @@ const port = 3000;
 
 app.use(express.json());
 
+
+//seleccionamos todos los students y vemos en json
 app.get("/students", (req, res) => {
   students.getAll().then((results) => res.json(results));
 });
@@ -44,6 +46,47 @@ app.post("/students",
       });
   }
 });
+
+//curl -v -POST http://localhost:3000/students -H "content-type: application/json" -d '{"name": "Juan", "last_name": "Hernández", "date_of_birth": "1997-08-22", "email": "jhernan@gmail.com"}'
+//curl -v -POST http://localhost:3000/students -H "content-type: application/json" -d '{"name": "Ana", "last_name": "Martínez", "date_of_birth": "1999-08-12", "email": "werwer~sasdad.com"}'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*        Ejercicio 1
 

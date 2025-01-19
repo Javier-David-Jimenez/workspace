@@ -1,5 +1,7 @@
 // Se carga el módulo de Express
 const express = require("express");
+
+const students = require("./repositories/students");
 // Creo la aplicación Express
 const app = express();
 // Declaro el puerto de escucha
@@ -13,6 +15,41 @@ app.get("/", (req, res) => {
   // Se responde, en el cuerpo de la respuesta con el mensaje "Hello World!!"
   res.status(200).send("Hello World!!");
 });
+
+
+///////////////////////////
+
+// Seleccionamos todos los estudiantes los metemos en json
+app.use(express.json());
+app.get("/students", (req, res) => {
+  students.getAll().then((results) => res.json(results));
+  });
+
+// con un curl metemos lso datos si faltan datos error
+app.post("/students", (req, res) => {
+  if (!(req.body.name && req.body.last_name && req.body.date_of_birth)) {
+    res.status(400).send("Faltan datos");
+    res.status(422).send('All fields are required(name, last_name, date_of_birth');
+  } else {
+    studients.insert(req.body).then(result =>{
+      res.json({succes: true, message: 'Student was saved successfully'});
+    }).catch(err =>{
+      res.json({succes: false, message: err.detail});
+    });
+    }
+  });
+
+
+
+
+
+
+
+
+
+
+
+
 
 /////////////////&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&6666666
 
