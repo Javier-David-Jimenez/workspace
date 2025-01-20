@@ -20,28 +20,18 @@ curl -v -X GET http://localhost:3000/students/5
 */
 
 app.get("/students/:id", (req, res) => {
-  const studentId = req.params.id;
-
-  // Usamos el modelo de Sequelize para buscar al estudiante por ID
-  studentId.findByPk(id) // findByPk busca por clave primaria
-    .then((student) => {
-      if (student) {
-        // Si el estudiante existe, devolvemos sus datos
- 
- 
-        res.json(student);
-      } else {
-        // Si no se encuentra, enviamos un error 404
-        res.status(404).json({ message: "Student doesn't exist" });
-      }
-    })
-    .catch((err) => {
-      // Si ocurre un error en la consulta, devolvemos un error 500
-      console.error(err);
-      res.status(500).json({ message: "An error occurred while retrieving the student" });
-    });
+  students.getById(req.params.id).then((results) => {
+    console.log(results);
+    if (results) {
+      res.json(results);
+    } else {
+      res.status(404).json({ message: "el estudiante no existe" });
+    }
+  }).catch((err) => {
+    console.log(err);
+    res.status(500).json({ message: err.message });
+  });
 });
-
 
 
 
