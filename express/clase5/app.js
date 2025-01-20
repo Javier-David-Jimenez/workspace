@@ -19,31 +19,40 @@ curl -v -X GET http://localhost:3000/students/2
 curl -v -X GET http://localhost:3000/students/5
 */
 
+app.get("/students/:id", (req, res) => {
+  const studentId = req.params.id;
 
-
-app.get("/students/:id", (req, res) => { 
-  students.getById(req.params.id)
-    .then((results) => {
-      console.log(results);
-      if (results) {
-        res.json(results);
+  // Usamos el modelo de Sequelize para buscar al estudiante por ID
+  student.findByPk(id) // findByPk busca por clave primaria
+    .then((student) => {
+      if (student) {
+        // Si el estudiante existe, devolvemos sus datos
+ 
+ 
+        res.json(student);
       } else {
+        // Si no se encuentra, enviamos un error 404
         res.status(404).json({ message: "Student doesn't exist" });
       }
     })
     .catch((err) => {
-      console.log(err);
-      res.status(500).json({ message: err.message });
+      // Si ocurre un error en la consulta, devolvemos un error 500
+      console.error(err);
+      res.status(500).json({ message: "An error occurred while retrieving the student" });
     });
 });
 
 
 
 
+
+
+
 /* ejercicio 5.2
- Ejercicio 2
- sequelize migration:create --name add_email
- modificar migrations/[TIMESTAMP]_add_email.js
+
+sequelize migration:create --name añade-email-y-active
+
+ modificar el fichero nuevo de migrations/20250120001112-añade-email-y-active.js
  ejecutar: sequelize db:migrate
  rollback de la última migración: sequelize db:migrate:undo
  rollback de todas las migraciones: sequelize db:migrate:undo:all
