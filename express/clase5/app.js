@@ -49,8 +49,8 @@ sequelize migration:create --name añade-email-y-active
  rollback de la última migración: sequelize db:migrate:undo
  rollback de todas las migraciones: sequelize db:migrate:undo:all
  introducir un registro con:
- curl -v -POST http://localhost:3000/students -H "content-type: application/json" -d '{"name": "Fausto", "last_name": "López", "date_of_birth": "1987-04-25", "email": "flopez@veridas.com"}'
- curl -v -POST http://localhost:3000/students -H "content-type: application/json" -d '{"name": "", "last_name": "López", "date_of_birth": "1987-04-25", "email": "flopez@veridas.com"}'
+ curl -v -POST http://localhost:3000/students -H "content-type: application/json" -d '{"name": "Alex", "last_name": "De la Church", "date_of_birth": "1977-06-22", "email": "delachurch@plantillas.com"}'
+ curl -v -POST http://localhost:3000/students -H "content-type: application/json" -d '{"name": "", "last_name": "Pérez", "date_of_birth": "1997-12-25", "email": "navidad@gmail.com"}'
  No vemos los campos, luego, tenemos que actualizar el modelo.
 */
 /*
@@ -58,9 +58,18 @@ Ejercicio 5.3, 5.4 y 5.5
 install xpress-validator: npm install --save express-validator
 importar: const { body, validationResult } = require('express-validator');
 añadir middleware para comprobar que el campo email es un email válido
-*/
+curl -X POST http://localhost:3000/students \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Juan", "last_name": "López", "date_of_birth": "1990-05-20", "email": "juan.lopez.com"}'
+
+Curl -X POST http://localhost:3000/students \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Juan", "last_name": "López", "date_of_birth": "1990-05-20", "email": """}'
+
+5.3 validamos que sea un email
+  */
 app.post("/students", 
-  body("email").notEmpty().withMessage("Email is required").bail().isEmail().withMessage('Invalid email format'), // validamos que sea un email. Ejercicio 5.3
+  body("email").notEmpty().withMessage("Email es obligatorio").bail().isEmail().withMessage('Invalid email format'), // validamos que sea un email. Ejercicio 5.3
   body("name").exists().withMessage('Name is required').notEmpty().withMessage('Name cannot be empty'), //validamos que el campo exista y no sea vacío.
   body("last_name").exists().withMessage('Last name is required').notEmpty().withMessage('Last name cannot be empty'), //validamos que el campo exista y no sea vacío.
   body("date_of_birth").exists().withMessage('Date of birth is required').notEmpty().withMessage('Date of birth cannot be empty').bail().isDate().withMessage('Invalid date format'), // validamos que sea una fecha. Ejercicio 5.4
@@ -93,42 +102,6 @@ app.post("/students",
 
 
 
-
-/*
-        Ejercicio 3
-install xpress-validator: npm install --save express-validator
-importar: const { body, validationResult } = require('express-validator');
-añadir middleware para comprobar que el campo email es un email válido
-curl -X POST http://localhost:3000/students \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Juan", "last_name": "López", "date_of_birth": "1990-05-20", "email": "juan.lopez.com"}'
-*/
-
-app.post("/students", 
-  body("email").isEmail(), // validamos que sea un email
-  body("name").exists().notEmpty(), //validamos que campo exista y no sea vacío
-  body("date_of_birth").isDate(), // validamos que sea una fecha
-  (req, res) => {
-  // obtener los resultados de la validación y los devolvemos
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
-  if (!(req.body.name && req.body.last_name && req.body.date_of_birth)) {
-    res
-      .status(422)
-      .send("All fields are required (name, last_name, date_of_birth)");
-  } else {
-    students
-      .insert(req.body)
-      .then((result) => {
-        res.json({ success: true, message: "Student was saved successfully" });
-      })
-      .catch((err) => {
-        res.json({ success: false, message: err.detail });
-      });
-  }
-});
 
 
 
