@@ -23,7 +23,7 @@ app.get("/students/:id", (req, res) => {
   const studentId = req.params.id;
 
   // Usamos el modelo de Sequelize para buscar al estudiante por ID
-  student.findByPk(id) // findByPk busca por clave primaria
+  studentId.findByPk(id) // findByPk busca por clave primaria
     .then((student) => {
       if (student) {
         // Si el estudiante existe, devolvemos sus datos
