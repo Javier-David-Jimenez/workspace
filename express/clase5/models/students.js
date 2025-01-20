@@ -14,9 +14,16 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   students.init({
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     name: DataTypes.STRING,
     last_name: DataTypes.STRING,
-    date_of_birth: DataTypes.DATE
+    date_of_birth: DataTypes.DATE,
+    email: DataTypes.STRING,
+    active: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'students',

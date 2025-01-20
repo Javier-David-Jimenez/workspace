@@ -53,6 +53,8 @@ app.get("/students/:id", (req, res) => {
 sequelize migration:create --name añade-email-y-active
 
  modificar el fichero nuevo de migrations/20250120001112-añade-email-y-active.js
+ modificar el modedels/students.js
+ 
  ejecutar: sequelize db:migrate
  rollback de la última migración: sequelize db:migrate:undo
  rollback de todas las migraciones: sequelize db:migrate:undo:all
