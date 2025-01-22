@@ -197,7 +197,14 @@ app.post("/login", (req, res) => {
 
 /*            EJERCICIO 3         */
 
-
+// Compruebo si ha iniciado sesión a través de la variable isLogged de la sesión.
+app.get("/home", (req, res) => {
+  if (req.session.isLogged) {
+    res.render("home");
+  } else {
+    res.render("login");
+  }
+});
 
 
 
