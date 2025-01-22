@@ -16,9 +16,7 @@ const port = 3000;
 app.use(cookieParser("ClaveSuperSecreta"));
 
 
-
-
-// Ruta para asignar las cookies
+// Ruta para asignar las cookies COOKIE
 app.get("/cookies/set" , (req, res) => {
   const date = new Date();
     date.setHours (date.getHours () + 5);
@@ -65,9 +63,13 @@ app.get("/cookies/delete" , (req, res) => {
   res.clearCookie ("customSignedCookie" );
   res.send("Cookies removed!" )
   });
+/*
+              SESIONSSSSSSSSSSSSSSSSSS
+*/
+
   
  /*
-  JWT TOKEN
+                  JWT TOKEN
  */
 
 // Clave secreta para JWT y parametros de tiempo de expiración
