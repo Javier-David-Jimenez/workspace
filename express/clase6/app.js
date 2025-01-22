@@ -119,7 +119,7 @@ JWT_SECRET, {
   res.json({ token: token });
 });
 
-
+/*  OCULTO EL JWT PARA QUE NO DE PROBLEMAS
 // Middleware para obtener el data de JWT
 const isAuth = (req, res, next) => {
   if (!req.headers.authorization) {
@@ -147,7 +147,7 @@ const isAuth = (req, res, next) => {
 app.get("/jwt", isAuth, (req, res) => {
   res.json({ data: req.data });
 });
-
+*/
 
 /*            EJERCICIO 1         */
 
@@ -250,8 +250,33 @@ app.post("/api/token", (req, res) => {
 
 /*   EJERCICIO  6*/ 
 
-
-
+// Middleware para obtener el data de JWT
+const isAuth = (req, res, next) => {
+  if (!req.headers.authorization) {
+    return res.status(401).json({
+      message: "Authorization Header missing",
+    });
+  }
+  let authorization = req.headers.authorization;
+  let token = authorization.split(" ")[1];
+  let jwtData;
+  try {
+    jwtData = jwt.verify(token, JWT_SECRET);
+  } catch (error) {
+    console.log(error);
+    return res.status(401).json({
+      message: "Invalid Token.",
+    });
+  }
+  req.data = jwtData.data;
+  next();
+};
+// Defino el endpoint de api protegido GET /api/protected
+// Lo puedo probar ejecutando en la terminal:
+// curl -GET http://localhost:3000/api/protected -H "Authorization: Bearer ${TOKEN}"
+app.get("/api/protected", isAuth, (req, res) => {
+  res.json(req.data);
+});
 
 
 
