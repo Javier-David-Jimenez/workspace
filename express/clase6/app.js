@@ -217,6 +217,40 @@ app.post("/logout", (req, res) => {
 });
 
 
+/*                 EJERCICIO 5               */ 
+
+// Para este ejercicio voy a cargar otro middleware
+// El middleware express.json para poder convertir cuerpos de json
+app.use(express.json());
+
+// Instalo el módulo jsonwebtoken: npm install jsonwebtoken --save
+// Cargo el módulo jsonwebtoken
+//const jwt = require("jsonwebtoken");
+//const JWT_SECRET = "ClaveMegaSecreta";
+
+// Creo endpoint POST /api/token
+// Lo puedo probar ejecutando en la consola:
+
+// curl -POST http://localhost:3000/api/token -H "content-type: application/json" -d '{"username": "foo", "password": "bar"}'
+app.post("/api/token", (req, res) => {
+  if (req.body.username == "foo" && req.body.password == "bar") {
+    const token = jwt.sign(
+      { data: { username: req.body.username } },
+      JWT_SECRET,
+      {
+        expiresIn: "5m",
+      }
+    );
+    res.json({ token: token });
+  } else {
+    res.sendStatus(401);
+  }
+});
+
+
+/*   EJERCICIO  6*/ 
+
+
 
 
 
