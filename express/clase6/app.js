@@ -142,6 +142,7 @@ const isAuth = (req, res, next) => {
   next();
   };
 
+
 // ruta para obtener los datos de get/jwt con el middleware isAuth nos genera el token
 app.get("/jwt", isAuth, (req, res) => {
   res.json({ data: req.data });
@@ -186,7 +187,7 @@ app.use(
 // Habilito los middlewares para convertir el cuerpo de urlencoded
 app.use(express.urlencoded({ extended: false }));
 
-// Creo endpoint POST /login
+// Creo endpoint POST /login nos redirige a /home
 app.post("/login", (req, res) => {
   if (req.body.username == "foo" && req.body.password == "bar") {
     req.session.isLogged = true;
@@ -207,26 +208,13 @@ app.get("/home", (req, res) => {
 });
 
 
-
-
-
-
-
-
-
-
-// ruta para obtener los datos de get/jwt
-app.get("/jwt", isAuth, (req, res) => {
-  res.json({ data: req.data });
+/*        Ejercicio           4*/
+// Elimino la variable de la sesión y hago redirect a /login
+// ¿Qué ocurre si hago redirect a /home? que vva directo y /login nos redirige a /login porque no estamos logados
+app.post("/logout", (req, res) => {
+  delete req.session.isLogged;
+  res.redirect("/home");
 });
-
-
-
-
-
-
-
-
 
 
 
