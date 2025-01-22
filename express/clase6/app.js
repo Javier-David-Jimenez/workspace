@@ -142,6 +142,35 @@ const isAuth = (req, res, next) => {
   next();
   };
 
+/*            EJERCICIO 1         */
+
+
+// Instalo el middleware mustache-express: npm install mustache-express --save
+// Cargo el módulo
+const mustacheExpress = require("mustache-express");
+
+// Configuro la ubicación de las vistas
+app.engine("html", mustacheExpress());
+app.set("view engine", "html");
+app.set("views", __dirname + "/views");
+
+// Creo endpoint GET /login
+app.get("/login", (req, res) => {
+  // Renderizo el archivo views/login.html
+  res.render("login");
+});
+
+
+//
+
+
+
+
+
+
+
+
+
 // ruta para obtener los datos de get/jwt
 app.get("/jwt", isAuth, (req, res) => {
   res.json({ data: req.data });
