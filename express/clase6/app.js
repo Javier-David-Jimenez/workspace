@@ -142,6 +142,12 @@ const isAuth = (req, res, next) => {
   next();
   };
 
+// ruta para obtener los datos de get/jwt con el middleware isAuth nos genera el token
+app.get("/jwt", isAuth, (req, res) => {
+  res.json({ data: req.data });
+});
+
+
 /*            EJERCICIO 1         */
 
 
@@ -162,6 +168,37 @@ app.get("/login", (req, res) => {
 
 
 //
+
+/*            EJERCICIO 2         */
+
+
+// Instalo el módulo express-session: npm install express-session --save
+// Cargo el módulo express-session const session = require("express-session");
+// Cargamos la función middleware de session
+app.use(
+  session({
+    secret: "ClaveUltraSecreta",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+// Habilito los middlewares para convertir el cuerpo de urlencoded
+app.use(express.urlencoded({ extended: false }));
+
+// Creo endpoint POST /login
+app.post("/login", (req, res) => {
+  if (req.body.username == "foo" && req.body.password == "bar") {
+    req.session.isLogged = true;
+  }
+  res.redirect("/home");
+});
+
+
+/*            EJERCICIO 3         */
+
+
+
 
 
 
