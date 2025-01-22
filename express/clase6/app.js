@@ -6,8 +6,10 @@ const app = express();
 const cookieParser = require("cookie-parser");
 //añadimos jsonwebtoken
 const jwt = require("jsonwebtoken");
-// Declaro el puerto de escucha
+//añadimos express-session
+const session = require("express-session");
 
+// Declaro el puerto de escucha
 const port = 3000;
 
 
@@ -67,7 +69,42 @@ app.get("/cookies/delete" , (req, res) => {
               SESIONSSSSSSSSSSSSSSSSSS
 */
 
+app.use(session({
+  secret: "ClaveUltraSecreta" ,
+  resave: false,
+  saveUninitialized: false
+ }));
+
+// Ruta para asignar la session
+app.get("/sessions/set" , (req, res) => {
+  req.session.isSessionSet = true;
+  res.send("isSessionSet set!" );
+  });
+
+// Ruta para eliminar la variable de la session
+app.get("/sessions/delete" , (req, res) => {
+  delete req.session.isSessionSet
+  res.send("Session variable removed!" );
+  });
   
+// Ruta para obtener los valores de la session
+app.get("/sessions" , (req, res) => {
+  console. log("Sessions: " , req.session);
+ // Cookies que han sido firmadas
+ res.json({
+  isSessionSet: req.session.isSessionSet
+  });
+ });
+ // Ruta protegida, necesita que la variable haya sido configurada
+ app.get("/protected-by-session" , (req, res) => {
+ if (req.session.isSessionSet) {
+  res.send("isSessionSet has been set!" );
+  } else {
+  res.send("The session variable doesn't exist!" );
+  }
+ });
+
+
  /*
                   JWT TOKEN
  */
