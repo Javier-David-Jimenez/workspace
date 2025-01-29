@@ -1,6 +1,7 @@
 // Importamos React, que es la biblioteca principal necesaria para crear componentes
 // Sin este import, no podríamos usar la sintaxis JSX ni crear componentes
 import React from 'react';
+import Table from './Table';
 
 // Definimos el primer componente llamado App
 // La sintaxis "class ... extends React.Component" indica que estamos creando
@@ -51,4 +52,4 @@ class App2 extends React.Component {
 
 // Exportamos ambos componentes para poder importarlos en otros archivos
 // Esta sintaxis permite exportar múltiples elementos a la vez
-export { App, App2 };
+export { App, App2, Table, };
