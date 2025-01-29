@@ -7,16 +7,30 @@ import Table from './Table';
 // La sintaxis "class ... extends React.Component" indica que estamos creando
 // un componente basado en clases que hereda todas las funcionalidades de React
 class App extends React.Component {
-  // El método render es obligatorio en todo componente de clase
-  // Define qué elementos HTML/JSX se mostrarán cuando usemos este componente
+
   render() {
+    const people = [
+      {
+        name: 'Fausto',
+        job: 'Developer'
+      },
+      {
+        name: 'López',
+        job: 'Developer'
+      },
+      {
+        name: 'Mendoza',
+        job:  'albañil'
+      },
+      {
+        name: 'Pérez',
+        job: 'albañil'
+      }
+    ];
     return (
-      // Los fragmentos <> </> son como contenedores invisibles
-      // Nos permiten retornar múltiples elementos sin crear un div adicional
-      <> 
-        <h1>Hola Mundo</h1>
-        <h2>Probamos metiendo en etiquetas vacia</h2>
-      </> 
+      <div className="container">
+        <Table peopleData={people} />
+      </div>
     );
   }
 }

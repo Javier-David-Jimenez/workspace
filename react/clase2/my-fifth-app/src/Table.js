@@ -1,42 +1,45 @@
-import React, { Component } from "react";const TableHeader = () => {
+import React, { Component } from "react";
+
+const TableHeader = () => {
     return (
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Apellido</th>
+                <th>trabajo</th>
             </tr>
         </thead>
     );
 };
-function TableBody() {
+
+function TableBody(props) {
+    const rows = props.peopleData.map((row, index) => {
     return (
-        <tbody>
-            <tr>
-                <td>John</td>
-                <td>Doe</td>
-            </tr>
-            <tr>
-                <td>Jane</td>
-                <td>Doe</td>
-            </tr>
-            <tr>
-                <td>Emily</td>
-                <td>Smith</td>
-            </tr>
-        </tbody>
+        <tr key={index}>
+            <td>{row.name}</td>
+            <td>{row.job}</td>
+        </tr>
     );
+    }
+    );
+
+    return <tbody>{rows}</tbody>;
 }
 
 class Table extends Component {
     render() {
+        const { peopleData } = this.props;
+        
+        // Verificamos si tenemos datos
+        if (!peopleData) {
+            return <p>Cargando datos...</p>;
+        }
+
         return (
             <table>
                 <TableHeader />
-                <TableBody />
+                <TableBody peopleData={peopleData} />
             </table>
         );
     }
 }
-
-// exportar
-export default Table;
+export default Table
