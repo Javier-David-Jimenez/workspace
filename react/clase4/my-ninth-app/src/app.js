@@ -1,13 +1,10 @@
 import React from 'react';
 
 class EventExample extends React.Component {
-    // El constructor se ejecuta cuando se crea una instancia del componente
     constructor(props) {
         // super(props) llama al constructor de la clase padre (React.Component)
         // Es necesario para poder usar 'this.props' en el constructor
         super(props);
-        
-        // Hacemos el bind del método manejadorClick al constructor
         this.manejadorClick = this.manejadorClick.bind(this);
     }
 
