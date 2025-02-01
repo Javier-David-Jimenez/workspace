@@ -1,0 +1,16 @@
+
+
+npm create vite@latest name-of-your-project -- --template react
+### follow prompts
+
+cd <your new project directory>
+
+## always need this!
+
+npm install react-router-dom 
+
+# only for this tutorial. of social media
+//npm install localforage match-sorter sort-by//
+
+
+npm run dev

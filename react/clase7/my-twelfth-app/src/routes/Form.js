@@ -30,12 +30,5 @@ class UseForm extends Component {
     }
 }
 
-    
-    
-    
-    
-    
-    
-   
 
 export default UseForm;
