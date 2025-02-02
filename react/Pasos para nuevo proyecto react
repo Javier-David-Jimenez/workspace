@@ -14,3 +14,87 @@ npm install react-router-dom
 
 
 npm run dev
+
+
+## Create a Browser Router
+
+https://reactrouter.com/6.28.0/routers/create-browser-router
+
+## creamos el directorio routes y el archivo root para las rutas
+´´
+mkdir src/routes
+touch src/routes/root.js     
+´´
+o routes o lo que sea
+
+y creamos las rutas con
+
+https://reactrouter.com/6.28.0/route/route#element
+
+
+## añadimos las rutas a src/main.jsx
+
+
+## creamos un archivo para los errores
+
+touch src/error-page.jsx
+
+y la ponemos en la root route de src/main.jsx
+
+import ErrorPage from "./error-page";      
+
+    element: <Root />,
+    errorElement: <ErrorPage />,   
+
+
+
+## Creamos contact route
+
+
+touch src/routes/contact.jsx
+
+y añadimos el componente de contacto  (codigo)
+
+importamos el componente contacto y creo una nueva ruta en main.jsx
+
+import Contact from "./routes/contact"; 
+{
+    path: "contacts/:contactId",
+    element: <Contact />,
+  },
+
+
+### y le metemos en el path como children para que se vea donde queremos
+ path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "contacts/:contactId",
+        element: <Contact />,
+      },
+    ],
+
+
+## y usaremos Outlet para verlo
+
+https://reactrouter.com/6.28.0/components/outlet
+
+lo importamos y lo ponemos dentro del div con id="detail"
+
+import { Outlet } from "react-router-dom";
+
+      <div id="detail">
+        <Outlet />
+      </div>
+
+##  Vamos a cambiar los <a> por Link updating mas ligeros del server
+
+en src/routes/root.jsx
+
+import { getContacts } from "../contacts";
+
+export async function loader() {
+  const contacts = await getContacts();
+  return { contacts };
+}
