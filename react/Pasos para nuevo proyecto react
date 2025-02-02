@@ -98,3 +98,25 @@ export async function loader() {
   const contacts = await getContacts();
   return { contacts };
 }
+
+y en src/main.jsx lo importamos y ponemos el loader: rootLoader
+
+import Root, { loader as rootLoader } from "./routes/root";
+
+    errorElement: <ErrorPage />,
+    loader: rootLoader,
+    children: [
+
+## acceder y renderizar los datos  
+
+en src/routes/root.jsx
+import {
+  Outlet,
+  Link,
+  useLoaderData,  <<==
+} from "react-router-dom";
+
+modificamos para renderizar
+
+
+# DATA WRITES + HTML FORMS
