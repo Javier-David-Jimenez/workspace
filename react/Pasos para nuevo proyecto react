@@ -120,3 +120,122 @@ modificamos para renderizar
 
 
 # DATA WRITES + HTML FORMS
+
+### Action
+#### Permite a las app mutar los datos con simple HTML Y HTTP y React Router trabaja por detrás
+https://reactrouter.com/6.28.0/route/action
+
+
+
+en src/routes/root.jsx
+
+importamos Form de "react-router-doom"
+y getcontacr + createcontac from contacts
+
+export async function action() {
+  const contact = await createContact();
+  return { contact };
+}
+
+Y cambiamos los form por Form para
+
+
+
+en src/main.jsx
+
+import Root, { loader as rootLoader, action as rootAction, } from "./routes/root";
+y añadimos a const router antes del children
+
+action: rootAction
+
+
+por ahora crea un contacto vacio
+Form previene al navegador de enviar la petición al servidor y la manda a nuestra ruta action
+React router usa esto como una ayuda para revalidar automaticamente el data de la pagina cuando acabe la acción-.
+se actualizan los useLoaderData hooks
+
+###  add a loader to contact page userLoaderData
+
+
+
+
+### nueva ruta en contacts/:contactId/edit empezamos con el componente
+
+touch src/routes/edit.jsx
+
+metemos el edit.js
+
+y vamos a maina importarlo
+
+import EditContact from "./routes/edit";
+
+y añadimos el path
+
+      {
+        path: "contacts/:contactId/edit",
+        element: <EditContact />,
+        loader: contactLoader,
+      },
+
+
+  
+  ## updating contacts con FormData
+
+  primero al edit
+  importamos redirect from react-router-dom
+
+  
+export async function action({ request, params }) {
+  const formData = await request.formData();
+  const updates = Object.fromEntries(formData);
+  await updateContact(params.contactId, updates);
+  return redirect(`/contacts/${params.contactId}`);
+}
+
+lo llevamos a main
+
+
+## ponimportamos eos NavLink en root
+IMPORTAMOS Y  eNVOLVEMOS EL LINK
+
+https://reactrouter.com/6.28.0/components/nav-link
+
+## USE-NAVIGATION-HOOK
+
+LO IMPORTAMOS EN ROUTES/ROOT
+
+https://reactrouter.com/6.28.0/hooks/use-navigation
+
+
+## DELETING RECORDS
+
+
+
+touch src/routes/destroy.jsx
+
+Add the destroy action
+y la importamos a main y la ponemos en los path
+
+
+
+## index route module
+touch src/routes/index.jsx
+
+copiamos codigo
+
+y en main importamos
+y en children
+{ index: true, element: <Index /> },
+
+
+## form to Form 
+cambiamos los form en root y la loader function
+
+luego q
+
+
+## mutation without navigation
+
+https://reactrouter.com/6.28.0/hooks/use-fetcher
+
+lo pondremos en routes.contact.jsx
